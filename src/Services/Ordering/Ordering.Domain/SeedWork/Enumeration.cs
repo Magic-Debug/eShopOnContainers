@@ -1,5 +1,8 @@
-namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.SeedWork;
+﻿namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.SeedWork;
 
+/// <summary>
+/// 使用枚举类代替 C#的 enum 类型,利用面向对象语言的丰富特性
+/// </summary>
 public abstract class Enumeration : IComparable
 {
     public string Name { get; private set; }

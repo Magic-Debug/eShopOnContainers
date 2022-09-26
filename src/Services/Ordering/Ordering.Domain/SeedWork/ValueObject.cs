@@ -1,5 +1,10 @@
 ﻿namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.SeedWork;
 
+
+/// <summary>
+/// 值对象不需要标识和标识跟踪,值对象可以引用其他实体
+/// 值对象两个重要特征：没有ID, 是不可变的
+/// </summary>
 public abstract class ValueObject
 {
     protected static bool EqualOperator(ValueObject left, ValueObject right)

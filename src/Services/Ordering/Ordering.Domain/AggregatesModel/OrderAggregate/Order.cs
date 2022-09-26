@@ -1,7 +1,8 @@
-﻿using Microsoft.eShopOnContainers.Services.Ordering.Domain.Events;
+﻿namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.OrderAggregate;
 
-namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.OrderAggregate;
-
+/// <summary>
+///Order 类被定义为实体，同时也是聚合根 基类和接口是在领域模型项目中定义的
+/// </summary>
 public class Order
     : Entity, IAggregateRoot
 {
@@ -16,21 +17,21 @@ public class Order
     public int? GetBuyerId => _buyerId;
     private int? _buyerId;
 
+    /// <summary>
+    /// 所有 set 属性访问器应该是private的
+    /// 任何对实体数据或子实体的操作都将通过实体类的方法进行。借此可以受控和面向对象的方式维护一致性，以取代用 [事务性脚本]的实现
+    /// </summary>
     public OrderStatus OrderStatus { get; private set; }
     private int _orderStatusId;
 
     private string _description;
 
-
-
-    // Draft orders have this set to true. Currently we don't check anywhere the draft status of an Order, but we could do it if needed
     private bool _isDraft;
 
-    // DDD Patterns comment
-    // Using a private collection field, better for DDD Aggregate's encapsulation
-    // so OrderItems cannot be added from "outside the AggregateRoot" directly to the collection,
-    // but only through the method OrderAggrergateRoot.AddOrderItem() which includes behaviour.
+    
     private readonly List<OrderItem> _orderItems;
+    // 实体的任何实体属性都必须不含有任何public的set属性访问器
+    // 以只读访问的方式暴露这些相关集合,同时显式提供让调用者操纵它们的方法 AddOrderItem() 
     public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
 
     private int? _paymentMethodId;
@@ -63,10 +64,10 @@ public class Order
                                     cardSecurityNumber, cardHolderName, cardExpiration);
     }
 
-    // DDD Patterns comment
-    // This Order AggregateRoot's method "AddOrderitem()" should be the only way to add Items to the Order,
-    // so any behavior (discounts, etc.) and validations are controlled by the AggregateRoot 
-    // in order to maintain consistency between the whole Aggregate. 
+    // 一致性和业务规则有关的聚合实体的大部分代码应通过Order聚合根类的方法实现（如用于添加OrderItem到聚合的 AddOrderItem)
+    // 不应独立或直接创建和更新OrderItem对象。AggregateRoot类必须对子实体的任何更新操作维持控制并保持一致性 
+    // 假设以公有可访问的列表类型暴露了集合导航属性。其他协作的程序员可以操纵这些集合类型的内容，这将绕过相关集合的重要业务规则，可能导致对象拥有无效状态，Bug也就在此萌芽
+    // 实体中的改动应该以在实体中执行更改的通用语言明显说明的方法显式驱动
     public void AddOrderItem(int productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)
     {
         var existingOrderForProduct = _orderItems.Where(o => o.ProductId == productId)

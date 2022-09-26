@@ -1,5 +1,16 @@
 ﻿namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.Seedwork;
 
+/// <summary>
+/// Seedwork（可重复用于领域模型的基类和接口）
+/// 包含了可用于领域实体和值对象的自定义基类，可避免在每个领域对象中包含冗余代码。包含这种类型的类的文件夹叫做SeedWork
+/// </summary>
+
+
+
+
+
+
+//标识是实体的基础
 public abstract class Entity
 {
     int? _requestedHashCode;

@@ -1,5 +1,8 @@
 ﻿namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.BuyerAggregate;
 
+/// <summary>
+/// 聚合根
+/// </summary>
 public class Buyer
     : Entity, IAggregateRoot
 {
