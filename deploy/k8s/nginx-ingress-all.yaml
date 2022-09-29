@@ -325,7 +325,7 @@ spec:
       dnsPolicy: ClusterFirst
       containers:
         - name: controller
-          image: registry.cn-hongkong.aliyuncs.com/gglnp/ingress-nginx-controller:v1.1.1
+          image: registry.cn-hongkong.aliyuncs.com/gglnp/ingress-nginx-controller:v0.46.0
           imagePullPolicy: IfNotPresent
           lifecycle:
             preStop:
@@ -607,7 +607,7 @@ spec:
     spec:
       containers:
         - name: create
-          image: registry.cn-hongkong.aliyuncs.com/gglnp/kube-webhook-certgen:v1.1.1
+          image: docker.io/jettech/kube-webhook-certgen:v1.5.2
           imagePullPolicy: IfNotPresent
           args:
             - create
