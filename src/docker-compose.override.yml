@@ -100,6 +100,8 @@ services:
     ports:
       - "5101:80"
       - "9101:81"
+    volumes:
+      - /e/Pics:/app/Pics
 
   ordering-api:
     environment:
