@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /webstatus
 
 image:
-  repository: eshop/webstatus
-  tag: latest
+  repository: wjkhappy14/webstatus
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

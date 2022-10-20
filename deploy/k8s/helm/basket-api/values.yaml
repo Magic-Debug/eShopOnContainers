@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /basket-api
 
 image:
-  repository: eshop/basket.api
-  tag: latest
+  repository: wjkhappy14/basket.api
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

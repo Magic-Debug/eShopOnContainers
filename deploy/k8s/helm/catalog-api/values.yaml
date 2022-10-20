@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /catalog-api
 
 image:
-  repository: eshop/catalog.api
-  tag: latest
+  repository: wjkhappy14/catalog.api
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

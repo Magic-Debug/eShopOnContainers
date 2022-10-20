@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /webshoppingagg
 
 image:
-  repository: eshop/webshoppingagg
-  tag: latest
+  repository: wjkhappy14/webshoppingagg
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

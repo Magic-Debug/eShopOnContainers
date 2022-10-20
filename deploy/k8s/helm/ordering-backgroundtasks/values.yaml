@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /ordering-backgroundtasks
 
 image:
-  repository: eshop/ordering.backgroundtasks
-  tag: latest
+  repository: wjkhappy14/ordering.backgroundtasks
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

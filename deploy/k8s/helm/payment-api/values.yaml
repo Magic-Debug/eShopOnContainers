@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /payment-api
 
 image:
-  repository: eshop/payment.api
-  tag: latest
+  repository: wjkhappy14/payment.api
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

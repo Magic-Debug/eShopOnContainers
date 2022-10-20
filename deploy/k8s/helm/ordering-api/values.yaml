@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /ordering-api
 
 image:
-  repository: eshop/ordering.api
-  tag: latest
+  repository: wjkhappy14/ordering.api
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

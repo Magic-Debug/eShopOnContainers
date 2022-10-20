@@ -3,8 +3,8 @@ clusterName: eshop-aks
 pathBase: /webmvc
 
 image:
-  repository: eshop/webmvc
-  tag: latest
+  repository: wjkhappy14/webmvc
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:
