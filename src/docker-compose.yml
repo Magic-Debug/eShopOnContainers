@@ -18,7 +18,7 @@ services:
     image: rabbitmq:3-management-alpine
 
   identity-api:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/identity.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/identity.api:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Identity/Identity.API/Dockerfile
@@ -26,7 +26,7 @@ services:
       - sqldata
 
   basket-api:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/basket.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/basket.api:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Basket/Basket.API/Dockerfile
@@ -36,7 +36,7 @@ services:
       - rabbitmq
 
   catalog-api:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/catalog.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/catalog.api:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
@@ -45,7 +45,7 @@ services:
       - rabbitmq
 
   ordering-api:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/ordering.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/ordering.api:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Ordering/Ordering.API/Dockerfile
@@ -54,7 +54,7 @@ services:
       - rabbitmq
 
   ordering-backgroundtasks:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/ordering.backgroundtasks:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/ordering.backgroundtasks:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Ordering/Ordering.BackgroundTasks/Dockerfile
@@ -63,7 +63,7 @@ services:
       - rabbitmq
 
   payment-api:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/payment.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/payment.api:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Payment/Payment.API/Dockerfile
@@ -71,7 +71,7 @@ services:
       - rabbitmq
 
   webhooks-api:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/webhooks.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/webhooks.api:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Webhooks/Webhooks.API/Dockerfile
@@ -82,7 +82,7 @@ services:
     image: envoyproxy/envoy:v1.11.1
 
   mobileshoppingagg:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/mobileshoppingagg:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/mobileshoppingagg:${TAG:-latest}
     build:
       context: .
       dockerfile: ApiGateways/Mobile.Bff.Shopping/aggregator/Dockerfile
@@ -96,7 +96,7 @@ services:
       - basket-api
 
   webshoppingagg:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/webshoppingagg:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/webshoppingagg:${TAG:-latest}
     build:
       context: .
       dockerfile: ApiGateways/Web.Bff.Shopping/aggregator/Dockerfile
@@ -110,7 +110,7 @@ services:
       - basket-api
 
   ordering-signalrhub:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/ordering.signalrhub:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/ordering.signalrhub:${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Ordering/Ordering.SignalrHub/Dockerfile
@@ -124,13 +124,13 @@ services:
       - basket-api
 
   webstatus:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/webstatus:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/webstatus:${TAG:-latest}
     build:
       context: .
       dockerfile: Web/WebStatus/Dockerfile
 
   webspa:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/webspa:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/webspa:${TAG:-latest}
     build:
       context: .
       dockerfile: Web/WebSPA/Dockerfile
@@ -141,7 +141,7 @@ services:
       - webshoppingapigw
 
   webmvc:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/webmvc:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/webmvc:${TAG:-latest}
     build:
       context: .
       dockerfile: Web/WebMVC/Dockerfile
@@ -150,7 +150,7 @@ services:
       - webshoppingapigw
 
   webhooks-client:
-    image: ${DOCKER_REGISTRY:-wjkhappy14}/webhooks.client:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${DOCKER_REGISTRY:-wjkhappy14}/webhooks.client:${TAG:-latest}
     build:
       context: .
       dockerfile: Web/WebhookClient/Dockerfile

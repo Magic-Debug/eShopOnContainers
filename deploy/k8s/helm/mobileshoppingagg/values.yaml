@@ -3,7 +3,7 @@ clusterName: eshop-aks
 pathBase: /mobileshoppingagg
 
 image:
-  repository: eshop/mobileshoppingagg
+  repository: wjkhappy14/mobileshoppingagg
   tag: latest
   pullPolicy: IfNotPresent
 
